@@ -1,0 +1,9 @@
+fictional_teaching_data,analysis_set,stratum,ravolixan,inhibitor,reports,qt_related_reports,proportion_percent_as_printed,symbol,source
+yes,all moderate or strong CYP3A4 inhibitors,neither ravolixan nor inhibitor,no,no,9595900,19192,0.200,f00,Table rvxstrata
+yes,all moderate or strong CYP3A4 inhibitors,"ravolixan, no inhibitor",yes,no,3680,26,0.707,f10,Table rvxstrata
+yes,all moderate or strong CYP3A4 inhibitors,"inhibitor, no ravolixan",no,yes,400000,2800,0.700,f01,Table rvxstrata
+yes,all moderate or strong CYP3A4 inhibitors,ravolixan with inhibitor,yes,yes,420,21,5.00,f11,Table rvxstrata
+yes,diltiazem only,neither ravolixan nor inhibitor,no,no,9595900,19192,0.200,f00,Calculation 18.4 (background as in Calculation 18.3)
+yes,diltiazem only,"ravolixan, no inhibitor",yes,no,3680,26,0.707,f10,Calculation 18.4 (as in Calculation 18.3)
+yes,diltiazem only,"diltiazem, no ravolixan",no,yes,80000,200,0.25,f01,Calculation 18.4
+yes,diltiazem only,ravolixan with diltiazem,yes,yes,60,3,5.0,f11,Calculation 18.4

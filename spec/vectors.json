@@ -1,0 +1,1930 @@
+{
+  "title": "Test vectors for the ddi-pv-toolkit calculators",
+  "book": "Drug–Drug Interactions in Drug Safety and Pharmacovigilance (Dr. Hafez Selim)",
+  "caveat": "Educational use only. Values come from the book's worked calculations, which use simplified static models and illustrative or fictional data. Not for dosing or clinical decisions.",
+  "format": {
+    "calculator": "snake_case calculator name, identical in Python and JavaScript",
+    "inputs": "keyword inputs; omitted optional inputs take their defaults (see spec/CALCULATORS.md)",
+    "expected": "values printed in the book for some or all outputs; outputs not listed are not checked",
+    "tolerance": "absolute tolerance per expected output; pass if |actual - expected| <= tolerance",
+    "source": "where the numbers appear in the book",
+    "note": "optional context"
+  },
+  "tolerance_rule": "Half a unit in the last digit the book prints (588 -> 0.5; 1.8 -> 0.05; 0.0247 -> 0.00005), unless a note says the book states an approximate value.",
+  "vectors": [
+    {
+      "calculator": "auc_ratio_inhibition",
+      "inputs": {
+        "fm": 0.5,
+        "fraction_inhibited": 0.9
+      },
+      "expected": {
+        "remaining_clearance": 0.55,
+        "auc_ratio": 1.8
+      },
+      "tolerance": {
+        "remaining_clearance": 0.005,
+        "auc_ratio": 0.05
+      },
+      "source": "Calculation 1.1"
+    },
+    {
+      "calculator": "auc_ratio_inhibition",
+      "inputs": {
+        "fm": 0.9,
+        "fraction_inhibited": 0.9
+      },
+      "expected": {
+        "remaining_clearance": 0.19,
+        "auc_ratio": 5.3
+      },
+      "tolerance": {
+        "remaining_clearance": 0.005,
+        "auc_ratio": 0.05
+      },
+      "source": "Calculation 1.1"
+    },
+    {
+      "calculator": "auc_ratio_inhibition",
+      "inputs": {
+        "fm": 0.9,
+        "fraction_inhibited": 0.99
+      },
+      "expected": {
+        "remaining_clearance": 0.109,
+        "auc_ratio": 9.2
+      },
+      "tolerance": {
+        "remaining_clearance": 0.0005,
+        "auc_ratio": 0.05
+      },
+      "source": "Calculation 1.1"
+    },
+    {
+      "calculator": "auc_ratio_inhibition",
+      "inputs": {
+        "fm": 0.9,
+        "fraction_inhibited": 0.9,
+        "fg_before": 0.3,
+        "fg_after": 0.9
+      },
+      "expected": {
+        "gut_factor": 3.0,
+        "auc_ratio_systemic": 5.3,
+        "auc_ratio": 16
+      },
+      "tolerance": {
+        "gut_factor": 0.05,
+        "auc_ratio_systemic": 0.05,
+        "auc_ratio": 0.5
+      },
+      "source": "Calculation 1.1",
+      "note": "Gut-wall extension: bioavailability triples and the effects multiply, 3 x 5.3 = 16 (book rounds 15.8 to 16)."
+    },
+    {
+      "calculator": "auc_ratio_inhibition",
+      "inputs": {
+        "fm": 0.9,
+        "fraction_inhibited": 1
+      },
+      "expected": {
+        "remaining_clearance": 0.1,
+        "auc_ratio": 10.0
+      },
+      "tolerance": {
+        "remaining_clearance": 0.005,
+        "auc_ratio": 0.05
+      },
+      "source": "Calculation 5.1",
+      "note": "Complete blockade."
+    },
+    {
+      "calculator": "auc_ratio_inhibition",
+      "inputs": {
+        "fm": 0.5,
+        "fraction_inhibited": 1
+      },
+      "expected": {
+        "auc_ratio": 2.0
+      },
+      "tolerance": {
+        "auc_ratio": 0.05
+      },
+      "source": "Calculation 5.1",
+      "note": "Complete blockade."
+    },
+    {
+      "calculator": "auc_ratio_inhibition",
+      "inputs": {
+        "fm": 0.2,
+        "fraction_inhibited": 1
+      },
+      "expected": {
+        "auc_ratio": 1.25
+      },
+      "tolerance": {
+        "auc_ratio": 0.005
+      },
+      "source": "Calculation 5.1",
+      "note": "Complete blockade."
+    },
+    {
+      "calculator": "auc_ratio_inhibition",
+      "inputs": {
+        "fm": 0.9,
+        "i_over_ki": 1
+      },
+      "expected": {
+        "fraction_inhibited": 0.5,
+        "remaining_clearance": 0.55,
+        "auc_ratio": 1.8
+      },
+      "tolerance": {
+        "fraction_inhibited": 0.005,
+        "remaining_clearance": 0.005,
+        "auc_ratio": 0.05
+      },
+      "source": "Calculation 5.1",
+      "note": "Partial blockade: [I]/Ki = 1 leaves the pathway half its activity, AUCR = 1 / (0.45 + 0.10)."
+    },
+    {
+      "calculator": "fm_ceiling",
+      "inputs": {
+        "fm": 0.9
+      },
+      "expected": {
+        "remaining_clearance": 0.1,
+        "auc_ratio_max": 10.0
+      },
+      "tolerance": {
+        "remaining_clearance": 0.005,
+        "auc_ratio_max": 0.05
+      },
+      "source": "Calculation 5.1"
+    },
+    {
+      "calculator": "fm_ceiling",
+      "inputs": {
+        "fm": 0.5
+      },
+      "expected": {
+        "auc_ratio_max": 2.0
+      },
+      "tolerance": {
+        "auc_ratio_max": 0.05
+      },
+      "source": "Calculation 5.1"
+    },
+    {
+      "calculator": "fm_ceiling",
+      "inputs": {
+        "fm": 0.2
+      },
+      "expected": {
+        "auc_ratio_max": 1.25,
+        "max_increase_percent": 25
+      },
+      "tolerance": {
+        "auc_ratio_max": 0.005,
+        "max_increase_percent": 0.5
+      },
+      "source": "Calculation 5.1",
+      "note": "'No inhibitor of that pathway raises exposure more than about 25%.'"
+    },
+    {
+      "calculator": "fm_ceiling",
+      "inputs": {
+        "fm": 0.75
+      },
+      "expected": {
+        "remaining_clearance": 0.25,
+        "auc_ratio_max": 4.0
+      },
+      "tolerance": {
+        "remaining_clearance": 0.005,
+        "auc_ratio_max": 0.05
+      },
+      "source": "Calculation 19.1"
+    },
+    {
+      "calculator": "fm_ceiling",
+      "inputs": {
+        "fm": 0.75
+      },
+      "expected": {
+        "auc_ratio_max": 4.0
+      },
+      "tolerance": {
+        "auc_ratio_max": 0.05
+      },
+      "source": "Calculation 23.1"
+    },
+    {
+      "calculator": "inhibition_from_auc_ratio",
+      "inputs": {
+        "fm": 0.75,
+        "auc_ratio": 2.0
+      },
+      "expected": {
+        "fraction_inhibited": 0.67,
+        "remaining_pathway_activity": 0.33,
+        "auc_ratio_max": 4.0
+      },
+      "tolerance": {
+        "fraction_inhibited": 0.005,
+        "remaining_pathway_activity": 0.005,
+        "auc_ratio_max": 0.05
+      },
+      "source": "Calculation 23.1",
+      "note": "Diltiazem: an AUC ratio of 2.0 corresponds to inhibiting about two-thirds of CYP3A4 clearance."
+    },
+    {
+      "calculator": "induction_auc_ratio",
+      "inputs": {
+        "fm": 0.7,
+        "activity_multiplier": 4,
+        "bioavailability_before": 0.5,
+        "bioavailability_after": 0.25
+      },
+      "expected": {
+        "relative_clearance": 3.1,
+        "auc_ratio_systemic": 0.32,
+        "bioavailability_ratio": 0.5,
+        "auc_ratio": 0.16,
+        "percent_change": -84
+      },
+      "tolerance": {
+        "relative_clearance": 0.005,
+        "auc_ratio_systemic": 0.005,
+        "bioavailability_ratio": 0.005,
+        "auc_ratio": 0.005,
+        "percent_change": 0.5
+      },
+      "source": "Calculation 5.2"
+    },
+    {
+      "calculator": "induction_auc_ratio",
+      "inputs": {
+        "fm": 0.9,
+        "activity_multiplier": 1.8,
+        "baseline_concentration": 100
+      },
+      "expected": {
+        "relative_clearance": 1.72,
+        "auc_ratio": 0.58,
+        "concentration_after": 58
+      },
+      "tolerance": {
+        "relative_clearance": 0.005,
+        "auc_ratio": 0.005,
+        "concentration_after": 0.5
+      },
+      "source": "Calculation 10.1",
+      "note": "Relief of IL-6-mediated suppression raises CYP3A4 activity by 80%; a trough of 100 ng/mL falls to about 58 ng/mL."
+    },
+    {
+      "calculator": "clearance_pathways",
+      "inputs": {
+        "nonrenal_fraction": 0.6,
+        "renal_fraction": 0.4,
+        "secretion_fraction": 0,
+        "nonrenal_inhibition": 0.8,
+        "secretion_inhibition": 0,
+        "renal_function": 1
+      },
+      "expected": {
+        "baseline_clearance": 1.0,
+        "inhibited_clearance": 0.52,
+        "auc_ratio_vs_own_baseline": 1.9
+      },
+      "tolerance": {
+        "baseline_clearance": 0.005,
+        "inhibited_clearance": 0.005,
+        "auc_ratio_vs_own_baseline": 0.05
+      },
+      "source": "Calculation 2.1",
+      "note": "Normal renal function."
+    },
+    {
+      "calculator": "clearance_pathways",
+      "inputs": {
+        "nonrenal_fraction": 0.6,
+        "renal_fraction": 0.4,
+        "secretion_fraction": 0,
+        "nonrenal_inhibition": 0.8,
+        "secretion_inhibition": 0,
+        "renal_function": 0.25
+      },
+      "expected": {
+        "baseline_clearance": 0.7,
+        "inhibited_clearance": 0.22,
+        "auc_ratio_vs_own_baseline": 3.2,
+        "auc_ratio_vs_normal_alone": 4.5
+      },
+      "tolerance": {
+        "baseline_clearance": 0.005,
+        "inhibited_clearance": 0.005,
+        "auc_ratio_vs_own_baseline": 0.05,
+        "auc_ratio_vs_normal_alone": 0.05
+      },
+      "source": "Calculation 2.1",
+      "note": "Renal clearance reduced by 75%."
+    },
+    {
+      "calculator": "clearance_pathways",
+      "inputs": {
+        "nonrenal_fraction": 0.1,
+        "renal_fraction": 0.4,
+        "secretion_fraction": 0.5,
+        "nonrenal_inhibition": 0,
+        "secretion_inhibition": 0.6,
+        "renal_function": 1
+      },
+      "expected": {
+        "baseline_clearance": 1.0,
+        "inhibited_clearance": 0.7,
+        "auc_ratio_vs_own_baseline": 1.4
+      },
+      "tolerance": {
+        "baseline_clearance": 0.005,
+        "inhibited_clearance": 0.005,
+        "auc_ratio_vs_own_baseline": 0.05
+      },
+      "source": "Calculation 6.2",
+      "note": "Normal renal function."
+    },
+    {
+      "calculator": "clearance_pathways",
+      "inputs": {
+        "nonrenal_fraction": 0.1,
+        "renal_fraction": 0.4,
+        "secretion_fraction": 0.5,
+        "nonrenal_inhibition": 0,
+        "secretion_inhibition": 0.6,
+        "renal_function": 0.4
+      },
+      "expected": {
+        "baseline_clearance": 0.46,
+        "impairment_alone_ratio": 2.2,
+        "inhibited_clearance": 0.34,
+        "auc_ratio_vs_own_baseline": 1.4,
+        "auc_ratio_vs_normal_alone": 2.9
+      },
+      "tolerance": {
+        "baseline_clearance": 0.005,
+        "impairment_alone_ratio": 0.05,
+        "inhibited_clearance": 0.005,
+        "auc_ratio_vs_own_baseline": 0.05,
+        "auc_ratio_vs_normal_alone": 0.05
+      },
+      "source": "Calculation 6.2",
+      "note": "Renal function at 40% of normal."
+    },
+    {
+      "calculator": "protein_binding_displacement",
+      "inputs": {
+        "dose_rate": 400,
+        "fu": 0.4,
+        "clu": 100
+      },
+      "expected": {
+        "total_clearance": 40,
+        "total_concentration": 10,
+        "unbound_concentration": 4.0
+      },
+      "tolerance": {
+        "total_clearance": 0.5,
+        "total_concentration": 0.5,
+        "unbound_concentration": 0.05
+      },
+      "source": "Calculation 6.1",
+      "note": "Baseline."
+    },
+    {
+      "calculator": "protein_binding_displacement",
+      "inputs": {
+        "dose_rate": 400,
+        "fu": 0.4,
+        "clu": 100,
+        "fu_new": 0.55
+      },
+      "expected": {
+        "total_clearance_new": 55,
+        "total_concentration_new": 7.3,
+        "unbound_concentration_new": 4.0,
+        "total_concentration_change": -0.27,
+        "unbound_concentration_ratio": 1.0
+      },
+      "tolerance": {
+        "total_clearance_new": 0.5,
+        "total_concentration_new": 0.05,
+        "unbound_concentration_new": 0.05,
+        "total_concentration_change": 0.005,
+        "unbound_concentration_ratio": 0.05
+      },
+      "source": "Calculation 6.1",
+      "note": "Displacement alone: unbound exposure unchanged, total exposure down 27%."
+    },
+    {
+      "calculator": "protein_binding_displacement",
+      "inputs": {
+        "dose_rate": 400,
+        "fu": 0.4,
+        "clu": 100,
+        "fu_new": 0.55,
+        "clu_new": 50
+      },
+      "expected": {
+        "total_clearance_new": 27.5,
+        "total_concentration_new": 14.5,
+        "unbound_concentration_new": 8.0,
+        "unbound_concentration_ratio": 2.0
+      },
+      "tolerance": {
+        "total_clearance_new": 0.05,
+        "total_concentration_new": 0.05,
+        "unbound_concentration_new": 0.05,
+        "unbound_concentration_ratio": 0.05
+      },
+      "source": "Calculation 6.1",
+      "note": "Displacement plus halved unbound clearance: unbound concentration doubles."
+    },
+    {
+      "calculator": "dose_adjusted_exposure",
+      "inputs": {
+        "auc_ratio": 2.0,
+        "dose": 20,
+        "reference_dose": 40
+      },
+      "expected": {
+        "dose_fraction": 0.5,
+        "relative_exposure": 1.0
+      },
+      "tolerance": {
+        "dose_fraction": 0.05,
+        "relative_exposure": 0.05
+      },
+      "source": "Calculation 23.1",
+      "note": "Diltiazem."
+    },
+    {
+      "calculator": "dose_adjusted_exposure",
+      "inputs": {
+        "auc_ratio": 2.6,
+        "dose": 20,
+        "reference_dose": 40
+      },
+      "expected": {
+        "relative_exposure": 1.3
+      },
+      "tolerance": {
+        "relative_exposure": 0.05
+      },
+      "source": "Calculation 23.1",
+      "note": "Fluconazole (PBPK)."
+    },
+    {
+      "calculator": "dose_adjusted_exposure",
+      "inputs": {
+        "auc_ratio": 4.2,
+        "dose": 20,
+        "reference_dose": 40
+      },
+      "expected": {
+        "relative_exposure": 2.1
+      },
+      "tolerance": {
+        "relative_exposure": 0.05
+      },
+      "source": "Calculation 23.1",
+      "note": "Itraconazole."
+    },
+    {
+      "calculator": "dose_adjusted_exposure",
+      "inputs": {
+        "auc_ratio": 3.9,
+        "dose": 20,
+        "reference_dose": 40
+      },
+      "expected": {
+        "relative_exposure": 2.0
+      },
+      "tolerance": {
+        "relative_exposure": 0.06
+      },
+      "source": "Calculation 23.1",
+      "note": "Clarithromycin (PBPK): the book rounds 0.5 x 3.9 = 1.95 to 'about 2.0', so the tolerance is widened slightly."
+    },
+    {
+      "calculator": "dose_adjusted_exposure",
+      "inputs": {
+        "auc_ratio": 2.6,
+        "dose": 20,
+        "reference_dose": 40
+      },
+      "expected": {
+        "relative_exposure": 1.3
+      },
+      "tolerance": {
+        "relative_exposure": 0.05
+      },
+      "source": "Calculation 19.2",
+      "note": "Step 5: 20 mg with fluconazole 200 mg, 2.6 / 2 = 1.3 times the 40 mg reference."
+    },
+    {
+      "calculator": "auc_mic",
+      "inputs": {
+        "single_dose_auc": 14.5,
+        "doses_per_day": 2,
+        "mic": 0.03,
+        "target": 125
+      },
+      "expected": {
+        "auc_24h": 29,
+        "auc_mic": 967
+      },
+      "tolerance": {
+        "auc_24h": 0.5,
+        "auc_mic": 0.5
+      },
+      "source": "Calculation 4.1",
+      "note": "Without iron. MIC 0.03 mg/L."
+    },
+    {
+      "calculator": "auc_mic",
+      "inputs": {
+        "single_dose_auc": 5.4,
+        "doses_per_day": 2,
+        "mic": 0.03,
+        "target": 125
+      },
+      "expected": {
+        "auc_24h": 10.8,
+        "auc_mic": 360
+      },
+      "tolerance": {
+        "auc_24h": 0.05,
+        "auc_mic": 0.5
+      },
+      "source": "Calculation 4.1",
+      "note": "With iron at every dose. MIC 0.03 mg/L."
+    },
+    {
+      "calculator": "auc_mic",
+      "inputs": {
+        "single_dose_auc": 14.5,
+        "doses_per_day": 2,
+        "mic": 0.125,
+        "target": 125
+      },
+      "expected": {
+        "auc_24h": 29,
+        "auc_mic": 232
+      },
+      "tolerance": {
+        "auc_24h": 0.5,
+        "auc_mic": 0.5
+      },
+      "source": "Calculation 4.1",
+      "note": "Without iron. MIC 0.125 mg/L."
+    },
+    {
+      "calculator": "auc_mic",
+      "inputs": {
+        "single_dose_auc": 5.4,
+        "doses_per_day": 2,
+        "mic": 0.125,
+        "target": 125
+      },
+      "expected": {
+        "auc_24h": 10.8,
+        "auc_mic": 86
+      },
+      "tolerance": {
+        "auc_24h": 0.05,
+        "auc_mic": 0.5
+      },
+      "source": "Calculation 4.1",
+      "note": "With iron at every dose. MIC 0.125 mg/L."
+    },
+    {
+      "calculator": "auc_mic",
+      "inputs": {
+        "single_dose_auc": 14.5,
+        "doses_per_day": 2,
+        "mic": 0.5,
+        "target": 125
+      },
+      "expected": {
+        "auc_24h": 29,
+        "auc_mic": 58
+      },
+      "tolerance": {
+        "auc_24h": 0.5,
+        "auc_mic": 0.5
+      },
+      "source": "Calculation 4.1",
+      "note": "Without iron. MIC 0.5 mg/L."
+    },
+    {
+      "calculator": "auc_mic",
+      "inputs": {
+        "single_dose_auc": 5.4,
+        "doses_per_day": 2,
+        "mic": 0.5,
+        "target": 125
+      },
+      "expected": {
+        "auc_24h": 10.8,
+        "auc_mic": 22
+      },
+      "tolerance": {
+        "auc_24h": 0.05,
+        "auc_mic": 0.5
+      },
+      "source": "Calculation 4.1",
+      "note": "With iron at every dose. MIC 0.5 mg/L."
+    },
+    {
+      "calculator": "time_to_steady_state",
+      "inputs": {
+        "half_life": 1,
+        "n_half_lives": 1
+      },
+      "expected": {
+        "fraction_complete": 0.5,
+        "time_to_n_half_lives": 1
+      },
+      "tolerance": {
+        "fraction_complete": 0.005,
+        "time_to_n_half_lives": 0.5
+      },
+      "source": "Section 8.2",
+      "note": "Fraction of the change completed after n half-lives, 1 - 0.5^n."
+    },
+    {
+      "calculator": "time_to_steady_state",
+      "inputs": {
+        "half_life": 1,
+        "n_half_lives": 2
+      },
+      "expected": {
+        "fraction_complete": 0.75,
+        "time_to_n_half_lives": 2
+      },
+      "tolerance": {
+        "fraction_complete": 0.005,
+        "time_to_n_half_lives": 0.5
+      },
+      "source": "Section 8.2",
+      "note": "Fraction of the change completed after n half-lives, 1 - 0.5^n."
+    },
+    {
+      "calculator": "time_to_steady_state",
+      "inputs": {
+        "half_life": 1,
+        "n_half_lives": 4
+      },
+      "expected": {
+        "fraction_complete": 0.94,
+        "time_to_n_half_lives": 4
+      },
+      "tolerance": {
+        "fraction_complete": 0.005,
+        "time_to_n_half_lives": 0.5
+      },
+      "source": "Section 8.2",
+      "note": "Fraction of the change completed after n half-lives, 1 - 0.5^n."
+    },
+    {
+      "calculator": "time_to_steady_state",
+      "inputs": {
+        "half_life": 1,
+        "n_half_lives": 5
+      },
+      "expected": {
+        "fraction_complete": 0.97,
+        "time_to_n_half_lives": 5
+      },
+      "tolerance": {
+        "fraction_complete": 0.005,
+        "time_to_n_half_lives": 0.5
+      },
+      "source": "Section 8.2",
+      "note": "Fraction of the change completed after n half-lives, 1 - 0.5^n."
+    },
+    {
+      "calculator": "time_to_steady_state",
+      "inputs": {
+        "half_life": 40,
+        "n_half_lives": 4,
+        "clearance_ratio": 0.6
+      },
+      "expected": {
+        "steady_state_ratio": 1.7,
+        "new_half_life": 67,
+        "time_to_n_half_lives": 267,
+        "fraction_complete": 0.94
+      },
+      "tolerance": {
+        "steady_state_ratio": 0.05,
+        "new_half_life": 0.5,
+        "time_to_n_half_lives": 0.5,
+        "fraction_complete": 0.005
+      },
+      "source": "Calculation 8.1",
+      "note": "Hours. 267 hours is about 11 days."
+    },
+    {
+      "calculator": "time_to_steady_state",
+      "inputs": {
+        "half_life": 40,
+        "n_half_lives": 4
+      },
+      "expected": {
+        "time_to_n_half_lives": 160
+      },
+      "tolerance": {
+        "time_to_n_half_lives": 0.5
+      },
+      "source": "Calculation 8.1",
+      "note": "Using the old half-life: 160 hours, under 7 days."
+    },
+    {
+      "calculator": "time_to_steady_state",
+      "inputs": {
+        "half_life": 14,
+        "n_half_lives": 5
+      },
+      "expected": {
+        "time_to_n_half_lives": 70
+      },
+      "tolerance": {
+        "time_to_n_half_lives": 0.5
+      },
+      "source": "Calculation 21.2",
+      "note": "Ravolixan without an inhibitor: about 97% eliminated in 70 hours; after restart, steady state by about day 3."
+    },
+    {
+      "calculator": "time_to_steady_state",
+      "inputs": {
+        "half_life": 14,
+        "n_half_lives": 5,
+        "auc_ratio": 3.9
+      },
+      "expected": {
+        "new_half_life": 55,
+        "time_to_n_half_lives": 264
+      },
+      "tolerance": {
+        "new_half_life": 0.5,
+        "time_to_n_half_lives": 12
+      },
+      "source": "Calculation 21.2",
+      "note": "Upper bound if the whole 3.9-fold increase were systemic: half-life about 55 hours; elimination 'up to about 11 days' (264 h); the model gives 273 h (11.4 days)."
+    },
+    {
+      "calculator": "exposure_rise_after_inhibition",
+      "inputs": {
+        "auc_ratio": 3.9,
+        "bioavailability_before": 0.6,
+        "bioavailability_after": 0.9,
+        "half_life": 14,
+        "time_since_start": 58
+      },
+      "expected": {
+        "bioavailability_ratio": 1.5,
+        "clearance_fold": 2.6,
+        "new_half_life": 36,
+        "n_new_half_lives": 1.6,
+        "fraction_to_steady_state": 0.67,
+        "systemic_fold_now": 2.1,
+        "exposure_fold_now": 3.1,
+        "time_to_4_half_lives": 144,
+        "time_to_5_half_lives": 192
+      },
+      "tolerance": {
+        "bioavailability_ratio": 0.05,
+        "clearance_fold": 0.05,
+        "new_half_life": 0.5,
+        "n_new_half_lives": 0.05,
+        "fraction_to_steady_state": 0.005,
+        "systemic_fold_now": 0.05,
+        "exposure_fold_now": 0.05,
+        "time_to_4_half_lives": 12,
+        "time_to_5_half_lives": 12
+      },
+      "source": "Calculation 25.1",
+      "note": "Hours. New steady state approached 4 to 5 half-lives after the start of Day 3, 'around Days 9 to 11' (6 to 8 days later); tolerances for those two outputs are half a day."
+    },
+    {
+      "calculator": "residual_inhibition",
+      "inputs": {
+        "half_life": 50,
+        "i_over_ki_at_stop": 4,
+        "time": 0
+      },
+      "expected": {
+        "pathway_activity_at_stop": 0.2,
+        "pathway_activity": 0.2
+      },
+      "tolerance": {
+        "pathway_activity_at_stop": 0.005,
+        "pathway_activity": 0.005
+      },
+      "source": "Calculation 8.2",
+      "note": "Days."
+    },
+    {
+      "calculator": "residual_inhibition",
+      "inputs": {
+        "half_life": 50,
+        "i_over_ki_at_stop": 4,
+        "time": 14
+      },
+      "expected": {
+        "fraction_inhibitor_remaining": 0.82
+      },
+      "tolerance": {
+        "fraction_inhibitor_remaining": 0.005
+      },
+      "source": "Calculation 8.2"
+    },
+    {
+      "calculator": "residual_inhibition",
+      "inputs": {
+        "half_life": 50,
+        "i_over_ki_at_stop": 4,
+        "time": 28
+      },
+      "expected": {
+        "fraction_inhibitor_remaining": 0.68,
+        "i_over_ki": 2.7,
+        "pathway_activity": 0.27
+      },
+      "tolerance": {
+        "fraction_inhibitor_remaining": 0.005,
+        "i_over_ki": 0.05,
+        "pathway_activity": 0.005
+      },
+      "source": "Calculation 8.2"
+    },
+    {
+      "calculator": "residual_inhibition",
+      "inputs": {
+        "half_life": 50,
+        "i_over_ki_at_stop": 4,
+        "time": 60
+      },
+      "expected": {
+        "fraction_inhibitor_remaining": 0.44
+      },
+      "tolerance": {
+        "fraction_inhibitor_remaining": 0.005
+      },
+      "source": "Calculation 8.2"
+    },
+    {
+      "calculator": "residual_inhibition",
+      "inputs": {
+        "half_life": 50,
+        "i_over_ki_at_stop": 4,
+        "time": 100
+      },
+      "expected": {
+        "fraction_inhibitor_remaining": 0.25,
+        "i_over_ki": 1.0,
+        "pathway_activity": 0.5
+      },
+      "tolerance": {
+        "fraction_inhibitor_remaining": 0.005,
+        "i_over_ki": 0.05,
+        "pathway_activity": 0.005
+      },
+      "source": "Calculation 8.2"
+    },
+    {
+      "calculator": "de_induction_remaining",
+      "inputs": {
+        "half_life": 8,
+        "time": 8
+      },
+      "expected": {
+        "fraction_recovered": 0.5
+      },
+      "tolerance": {
+        "fraction_recovered": 0.005
+      },
+      "source": "Calculation 5.2",
+      "note": "Days; about half the excess gone by day 8."
+    },
+    {
+      "calculator": "de_induction_remaining",
+      "inputs": {
+        "half_life": 8,
+        "time": 16
+      },
+      "expected": {
+        "fraction_recovered": 0.75
+      },
+      "tolerance": {
+        "fraction_recovered": 0.005
+      },
+      "source": "Calculation 5.2",
+      "note": "Three-quarters by day 16."
+    },
+    {
+      "calculator": "de_induction_remaining",
+      "inputs": {
+        "half_life": 8,
+        "time": 27
+      },
+      "expected": {
+        "fraction_recovered": 0.9
+      },
+      "tolerance": {
+        "fraction_recovered": 0.005
+      },
+      "source": "Calculation 5.2",
+      "note": "About 90% by day 27."
+    },
+    {
+      "calculator": "de_induction_remaining",
+      "inputs": {
+        "half_life": 70,
+        "time": 168
+      },
+      "expected": {
+        "fraction_remaining": 0.19
+      },
+      "tolerance": {
+        "fraction_remaining": 0.005
+      },
+      "source": "Calculation 8.3",
+      "note": "Hours: 7 days with a 70-hour half-life."
+    },
+    {
+      "calculator": "de_induction_remaining",
+      "inputs": {
+        "half_life": 8,
+        "time": 7
+      },
+      "expected": {
+        "fraction_remaining": 0.55
+      },
+      "tolerance": {
+        "fraction_remaining": 0.005
+      },
+      "source": "Calculation 8.3",
+      "note": "Days: 7 days with an 8-day half-life."
+    },
+    {
+      "calculator": "de_induction_remaining",
+      "inputs": {
+        "half_life": 70,
+        "time": 336
+      },
+      "expected": {
+        "fraction_remaining": 0.04
+      },
+      "tolerance": {
+        "fraction_remaining": 0.005
+      },
+      "source": "Calculation 8.3",
+      "note": "Hours: 14 days."
+    },
+    {
+      "calculator": "de_induction_remaining",
+      "inputs": {
+        "half_life": 8,
+        "time": 14
+      },
+      "expected": {
+        "fraction_remaining": 0.3
+      },
+      "tolerance": {
+        "fraction_remaining": 0.005
+      },
+      "source": "Calculation 8.3",
+      "note": "Days: 14 days."
+    },
+    {
+      "calculator": "de_induction_remaining",
+      "inputs": {
+        "half_life": 70,
+        "time": 672
+      },
+      "expected": {
+        "fraction_remaining": 0.005
+      },
+      "tolerance": {
+        "fraction_remaining": 0.005
+      },
+      "source": "Calculation 8.3",
+      "note": "Hours: 28 days; the book says 'under 0.01', encoded as 0.005 +/- 0.005."
+    },
+    {
+      "calculator": "de_induction_remaining",
+      "inputs": {
+        "half_life": 8,
+        "time": 28
+      },
+      "expected": {
+        "fraction_remaining": 0.09
+      },
+      "tolerance": {
+        "fraction_remaining": 0.005
+      },
+      "source": "Calculation 8.3",
+      "note": "Days: 28 days."
+    },
+    {
+      "calculator": "de_induction_remaining",
+      "inputs": {
+        "half_life": 8,
+        "time": 28,
+        "induced_auc_ratio": 0.18
+      },
+      "expected": {
+        "fraction_remaining": 0.09,
+        "clearance_multiple_at_stop": 5.6,
+        "excess_at_stop": 4.6,
+        "clearance_multiple": 1.4,
+        "auc_relative_to_uninduced": 0.7
+      },
+      "tolerance": {
+        "fraction_remaining": 0.005,
+        "clearance_multiple_at_stop": 0.05,
+        "excess_at_stop": 0.05,
+        "clearance_multiple": 0.05,
+        "auc_relative_to_uninduced": 0.05
+      },
+      "source": "Calculation 21.1",
+      "note": "Rifampin, 28-day washout (3.5 half-lives)."
+    },
+    {
+      "calculator": "de_induction_remaining",
+      "inputs": {
+        "half_life": 8,
+        "time": 42,
+        "induced_auc_ratio": 0.18
+      },
+      "expected": {
+        "auc_relative_to_uninduced": 0.9
+      },
+      "tolerance": {
+        "auc_relative_to_uninduced": 0.05
+      },
+      "source": "Calculation 21.1",
+      "note": "At 42 days."
+    },
+    {
+      "calculator": "washout",
+      "inputs": {
+        "recovery_half_life": 1,
+        "n_half_lives": 5
+      },
+      "expected": {
+        "fraction_remaining_after_n": 0.03
+      },
+      "tolerance": {
+        "fraction_remaining_after_n": 0.005
+      },
+      "source": "Section 21.3",
+      "note": "Five inhibitor half-lives remove about 97%."
+    },
+    {
+      "calculator": "washout",
+      "inputs": {
+        "recovery_half_life": 2.3,
+        "n_half_lives": 5
+      },
+      "expected": {
+        "time_required": 11.5,
+        "fraction_remaining_after_n": 0.03
+      },
+      "tolerance": {
+        "time_required": 0.05,
+        "fraction_remaining_after_n": 0.005
+      },
+      "source": "Calculation 21.1",
+      "note": "Clarithromycin: five recovery half-lives of 2.3 days leave about 3% of the inhibition."
+    },
+    {
+      "calculator": "washout",
+      "inputs": {
+        "recovery_half_life": 2.3,
+        "n_half_lives": 5,
+        "elimination_lag": 1.5
+      },
+      "expected": {
+        "time_required": 13
+      },
+      "tolerance": {
+        "time_required": 0.5
+      },
+      "source": "Calculation 21.1",
+      "note": "Adding 1 to 2 days for elimination gives 'about 13 days' (12.5 to 13.5)."
+    },
+    {
+      "calculator": "washout",
+      "inputs": {
+        "recovery_half_life": 3,
+        "elimination_lag": 1,
+        "washout_duration": 14
+      },
+      "expected": {
+        "fraction_remaining_at_washout": 0.05
+      },
+      "tolerance": {
+        "fraction_remaining_at_washout": 0.005
+      },
+      "source": "Calculation 21.1",
+      "note": "If the recovery half-life were 3 days, 14 days would leave 'about 5 to 6%' (1-day elimination lag)."
+    },
+    {
+      "calculator": "washout",
+      "inputs": {
+        "recovery_half_life": 3,
+        "elimination_lag": 2,
+        "washout_duration": 14
+      },
+      "expected": {
+        "fraction_remaining_at_washout": 0.06
+      },
+      "tolerance": {
+        "fraction_remaining_at_washout": 0.005
+      },
+      "source": "Calculation 21.1",
+      "note": "As above with a 2-day elimination lag. Without any lag the model gives about 4%."
+    },
+    {
+      "calculator": "qt_correction",
+      "inputs": {
+        "qt": 480,
+        "heart_rate": 90
+      },
+      "expected": {
+        "rr": 0.667,
+        "qtc_bazett": 588,
+        "qtc_fridericia": 549
+      },
+      "tolerance": {
+        "rr": 0.0005,
+        "qtc_bazett": 0.5,
+        "qtc_fridericia": 0.5
+      },
+      "source": "Calculation 7.1"
+    },
+    {
+      "calculator": "qt_correction",
+      "inputs": {
+        "qt": 480,
+        "heart_rate": 60
+      },
+      "expected": {
+        "rr": 1.0,
+        "qtc_bazett": 480,
+        "qtc_fridericia": 480
+      },
+      "tolerance": {
+        "rr": 0.05,
+        "qtc_bazett": 0.5,
+        "qtc_fridericia": 0.5
+      },
+      "source": "Calculation 7.1"
+    },
+    {
+      "calculator": "exposure_qtc_line",
+      "inputs": {
+        "multiple_1": 1,
+        "dqtc_1": 6,
+        "multiple_2": 4,
+        "dqtc_2": 18,
+        "multiple": 2.1
+      },
+      "expected": {
+        "slope": 4,
+        "intercept": 2,
+        "dqtc": 10
+      },
+      "tolerance": {
+        "slope": 0.5,
+        "intercept": 0.5,
+        "dqtc": 0.5
+      },
+      "source": "Calculation 19.2",
+      "note": "Step 4, lower end of the bracket."
+    },
+    {
+      "calculator": "exposure_qtc_line",
+      "inputs": {
+        "multiple_1": 1,
+        "dqtc_1": 6,
+        "multiple_2": 4,
+        "dqtc_2": 18,
+        "multiple": 4.2
+      },
+      "expected": {
+        "dqtc": 19
+      },
+      "tolerance": {
+        "dqtc": 0.5
+      },
+      "source": "Calculation 19.2",
+      "note": "Step 4, upper end of the bracket."
+    },
+    {
+      "calculator": "exposure_qtc_line",
+      "inputs": {
+        "multiple_1": 1,
+        "dqtc_1": 6,
+        "multiple_2": 4,
+        "dqtc_2": 18,
+        "multiple": 1.3
+      },
+      "expected": {
+        "dqtc": 7
+      },
+      "tolerance": {
+        "dqtc": 0.5
+      },
+      "source": "Calculation 19.2",
+      "note": "Step 5, 20 mg with fluconazole 200 mg."
+    },
+    {
+      "calculator": "exposure_qtc_line",
+      "inputs": {
+        "multiple_1": 1,
+        "dqtc_1": 6,
+        "multiple_2": 4,
+        "dqtc_2": 18,
+        "multiple": 3
+      },
+      "expected": {
+        "slope": 4,
+        "dqtc": 14
+      },
+      "tolerance": {
+        "slope": 0.5,
+        "dqtc": 0.5
+      },
+      "source": "Calculation 25.1",
+      "note": "About 3-fold exposure: 6 + 4 x 2."
+    },
+    {
+      "calculator": "absolute_risk",
+      "inputs": {
+        "baseline_risk": 0.005,
+        "relative_risk": 1.6
+      },
+      "expected": {
+        "risk_exposed": 0.008,
+        "excess_risk": 0.003,
+        "number_needed_to_harm": 333
+      },
+      "tolerance": {
+        "risk_exposed": 0.0005,
+        "excess_risk": 0.0005,
+        "number_needed_to_harm": 0.5
+      },
+      "source": "Calculation 9.1",
+      "note": "Low-risk person."
+    },
+    {
+      "calculator": "absolute_risk",
+      "inputs": {
+        "baseline_risk": 0.05,
+        "relative_risk": 1.6
+      },
+      "expected": {
+        "risk_exposed": 0.08,
+        "excess_risk": 0.03,
+        "number_needed_to_harm": 33
+      },
+      "tolerance": {
+        "risk_exposed": 0.005,
+        "excess_risk": 0.005,
+        "number_needed_to_harm": 0.5
+      },
+      "source": "Calculation 9.1",
+      "note": "High-risk person."
+    },
+    {
+      "calculator": "reporting_rate",
+      "inputs": {
+        "cases": 47,
+        "exposure": 180000,
+        "per": 100000
+      },
+      "expected": {
+        "rate": 26
+      },
+      "tolerance": {
+        "rate": 0.5
+      },
+      "source": "Calculation 17.1"
+    },
+    {
+      "calculator": "reporting_rate",
+      "inputs": {
+        "cases": 47,
+        "exposure": 180000,
+        "per": 1000
+      },
+      "expected": {
+        "rate": 0.26
+      },
+      "tolerance": {
+        "rate": 0.005
+      },
+      "source": "Calculation 20.1"
+    },
+    {
+      "calculator": "reporting_rate",
+      "inputs": {
+        "cases": 47,
+        "exposure": 180000,
+        "per": 100000
+      },
+      "expected": {
+        "rate": 26.1
+      },
+      "tolerance": {
+        "rate": 0.05
+      },
+      "source": "Calculation 22.1",
+      "note": "Cumulative."
+    },
+    {
+      "calculator": "reporting_rate",
+      "inputs": {
+        "cases": 24,
+        "exposure": 61000,
+        "per": 100000
+      },
+      "expected": {
+        "rate": 39.3
+      },
+      "tolerance": {
+        "rate": 0.05
+      },
+      "source": "Calculation 22.1",
+      "note": "Interval."
+    },
+    {
+      "calculator": "reporting_rate",
+      "inputs": {
+        "cases": 23,
+        "exposure": 119000,
+        "per": 100000
+      },
+      "expected": {
+        "rate": 19.3
+      },
+      "tolerance": {
+        "rate": 0.05
+      },
+      "source": "Calculation 22.1",
+      "note": "Before the interval."
+    },
+    {
+      "calculator": "reporting_rate",
+      "inputs": {
+        "cases": 13,
+        "exposure": 61000,
+        "per": 100000
+      },
+      "expected": {
+        "rate": 21.3
+      },
+      "tolerance": {
+        "rate": 0.05
+      },
+      "source": "Calculation 22.1",
+      "note": "With a CYP3A4 inhibitor, interval, all ravolixan exposure as denominator."
+    },
+    {
+      "calculator": "reporting_rate",
+      "inputs": {
+        "cases": 8,
+        "exposure": 119000,
+        "per": 100000
+      },
+      "expected": {
+        "rate": 6.7
+      },
+      "tolerance": {
+        "rate": 0.05
+      },
+      "source": "Calculation 22.1",
+      "note": "With a CYP3A4 inhibitor, before the interval."
+    },
+    {
+      "calculator": "co_exposure_sensitivity",
+      "inputs": {
+        "cases_with": 21,
+        "cases_without": 26,
+        "total_exposure": 180000,
+        "co_exposure_fraction": 0.02,
+        "per": 100000
+      },
+      "expected": {
+        "exposure_with": 3600,
+        "exposure_without": 176400,
+        "rate_with": 583,
+        "rate_without": 15,
+        "rate_ratio": 40
+      },
+      "tolerance": {
+        "exposure_with": 0.5,
+        "exposure_without": 0.5,
+        "rate_with": 0.5,
+        "rate_without": 0.5,
+        "rate_ratio": 0.5
+      },
+      "source": "Calculation 17.1",
+      "note": "The apparent ratio 'ranges from about 7 to about 40'."
+    },
+    {
+      "calculator": "co_exposure_sensitivity",
+      "inputs": {
+        "cases_with": 21,
+        "cases_without": 26,
+        "total_exposure": 180000,
+        "co_exposure_fraction": 0.05,
+        "per": 100000
+      },
+      "expected": {
+        "exposure_with": 9000,
+        "exposure_without": 171000,
+        "rate_with": 233,
+        "rate_without": 15
+      },
+      "tolerance": {
+        "exposure_with": 0.5,
+        "exposure_without": 0.5,
+        "rate_with": 0.5,
+        "rate_without": 0.5
+      },
+      "source": "Calculation 17.1"
+    },
+    {
+      "calculator": "co_exposure_sensitivity",
+      "inputs": {
+        "cases_with": 21,
+        "cases_without": 26,
+        "total_exposure": 180000,
+        "co_exposure_fraction": 0.1,
+        "per": 100000
+      },
+      "expected": {
+        "exposure_with": 18000,
+        "exposure_without": 162000,
+        "rate_with": 117,
+        "rate_without": 16,
+        "rate_ratio": 7
+      },
+      "tolerance": {
+        "exposure_with": 0.5,
+        "exposure_without": 0.5,
+        "rate_with": 0.5,
+        "rate_without": 0.5,
+        "rate_ratio": 0.5
+      },
+      "source": "Calculation 17.1"
+    },
+    {
+      "calculator": "co_exposure_sensitivity",
+      "inputs": {
+        "cases_with": 21,
+        "cases_without": 26,
+        "total_exposure": 180000,
+        "co_exposure_fraction": 0.02,
+        "per": 1000
+      },
+      "expected": {
+        "exposure_with": 3600,
+        "rate_with": 5.8,
+        "rate_without": 0.15,
+        "rate_ratio": 40
+      },
+      "tolerance": {
+        "exposure_with": 0.5,
+        "rate_with": 0.05,
+        "rate_without": 0.005,
+        "rate_ratio": 0.5
+      },
+      "source": "Calculation 20.1",
+      "note": "Ratio 'about 40'."
+    },
+    {
+      "calculator": "co_exposure_sensitivity",
+      "inputs": {
+        "cases_with": 21,
+        "cases_without": 26,
+        "total_exposure": 180000,
+        "co_exposure_fraction": 0.1,
+        "per": 1000
+      },
+      "expected": {
+        "exposure_with": 18000,
+        "rate_with": 1.2,
+        "rate_without": 0.16,
+        "rate_ratio": 7
+      },
+      "tolerance": {
+        "exposure_with": 0.5,
+        "rate_with": 0.05,
+        "rate_without": 0.005,
+        "rate_ratio": 0.5
+      },
+      "source": "Calculation 20.1",
+      "note": "Ratio 'about 7'."
+    },
+    {
+      "calculator": "co_exposure_sensitivity",
+      "inputs": {
+        "cases_with": 21,
+        "cases_without": 26,
+        "total_exposure": 180000,
+        "co_exposure_fraction": 0.02,
+        "per": 100000
+      },
+      "expected": {
+        "rate_with": 583,
+        "rate_without": 14.7,
+        "rate_ratio": 40
+      },
+      "tolerance": {
+        "rate_with": 0.5,
+        "rate_without": 0.05,
+        "rate_ratio": 0.5
+      },
+      "source": "Calculation 22.1",
+      "note": "Ratio 'about 40'."
+    },
+    {
+      "calculator": "co_exposure_sensitivity",
+      "inputs": {
+        "cases_with": 21,
+        "cases_without": 26,
+        "total_exposure": 180000,
+        "co_exposure_fraction": 0.05,
+        "per": 100000
+      },
+      "expected": {
+        "rate_with": 233,
+        "rate_without": 15.2,
+        "rate_ratio": 15
+      },
+      "tolerance": {
+        "rate_with": 0.5,
+        "rate_without": 0.05,
+        "rate_ratio": 0.5
+      },
+      "source": "Calculation 22.1",
+      "note": "Ratio 'about 15'."
+    },
+    {
+      "calculator": "co_exposure_sensitivity",
+      "inputs": {
+        "cases_with": 21,
+        "cases_without": 26,
+        "total_exposure": 180000,
+        "co_exposure_fraction": 0.1,
+        "per": 100000
+      },
+      "expected": {
+        "rate_with": 117,
+        "rate_without": 16.0,
+        "rate_ratio": 7
+      },
+      "tolerance": {
+        "rate_with": 0.5,
+        "rate_without": 0.05,
+        "rate_ratio": 0.5
+      },
+      "source": "Calculation 22.1",
+      "note": "Ratio 'about 7'."
+    },
+    {
+      "calculator": "proportion_ratio",
+      "inputs": {
+        "events_1": 198,
+        "total_1": 10400,
+        "events_2": 101,
+        "total_2": 11200
+      },
+      "expected": {
+        "proportion_1": 0.019,
+        "proportion_2": 0.009,
+        "ratio": 0.47,
+        "ratio_lower": 0.37,
+        "ratio_upper": 0.6,
+        "difference": -0.01,
+        "difference_per_1000": -10
+      },
+      "tolerance": {
+        "proportion_1": 5e-05,
+        "proportion_2": 5e-05,
+        "ratio": 0.005,
+        "ratio_lower": 0.005,
+        "ratio_upper": 0.005,
+        "difference": 0.0005,
+        "difference_per_1000": 0.5
+      },
+      "source": "Calculation 24.1",
+      "note": "Strong-inhibitor co-dispensing before (group 1) and after (group 2) the measures; 'about 1.0 percentage point, or about 10 fewer per 1,000'."
+    },
+    {
+      "calculator": "rule_of_three",
+      "inputs": {
+        "n": 2900
+      },
+      "expected": {
+        "upper_bound": 0.001,
+        "one_in": 1000
+      },
+      "tolerance": {
+        "upper_bound": 0.0001,
+        "one_in": 50
+      },
+      "source": "Section 19.4",
+      "note": "'About 3 in 2,900, or roughly 1 in 1,000.'"
+    },
+    {
+      "calculator": "rule_of_three",
+      "inputs": {
+        "n": 2900
+      },
+      "expected": {
+        "upper_bound": 0.001,
+        "one_in": 1000
+      },
+      "tolerance": {
+        "upper_bound": 0.0001,
+        "one_in": 50
+      },
+      "source": "Section 26.2",
+      "note": "'About 3 in 2,900, or roughly 1 in 1,000.'"
+    },
+    {
+      "calculator": "prr_ror",
+      "inputs": {
+        "a": 47,
+        "b": 4053,
+        "c": 21992,
+        "d": 9973908
+      },
+      "expected": {
+        "prr": 5.21,
+        "prr_lower": 3.92,
+        "prr_upper": 6.93,
+        "ror": 5.26,
+        "se_ln_ror": 0.147,
+        "ror_lower": 3.94,
+        "ror_upper": 7.01
+      },
+      "tolerance": {
+        "prr": 0.005,
+        "prr_lower": 0.005,
+        "prr_upper": 0.005,
+        "ror": 0.005,
+        "se_ln_ror": 0.0005,
+        "ror_lower": 0.005,
+        "ror_upper": 0.005
+      },
+      "source": "Calculation 18.1",
+      "note": "Single-drug screen, ravolixan x QT-related events (fictional data)."
+    },
+    {
+      "calculator": "prr_ror",
+      "inputs": {
+        "a": 21,
+        "b": 399,
+        "c": 26,
+        "d": 3654
+      },
+      "expected": {
+        "prr": 7.08,
+        "prr_lower": 4.02,
+        "prr_upper": 12.47,
+        "ror": 7.4,
+        "ror_lower": 4.12,
+        "ror_upper": 13.27
+      },
+      "tolerance": {
+        "prr": 0.005,
+        "prr_lower": 0.005,
+        "prr_upper": 0.005,
+        "ror": 0.005,
+        "ror_lower": 0.005,
+        "ror_upper": 0.005
+      },
+      "source": "Calculation 18.2",
+      "note": "Within-drug comparison, inhibitor versus no inhibitor (fictional data)."
+    },
+    {
+      "calculator": "prr_ror",
+      "inputs": {
+        "a": 21,
+        "b": 399,
+        "c": 26,
+        "d": 3654
+      },
+      "expected": {
+        "prr": 7.1,
+        "ror": 7.4
+      },
+      "tolerance": {
+        "prr": 0.05,
+        "ror": 0.05
+      },
+      "source": "Chapter 18 opening question",
+      "note": "The colleague's rounded values."
+    },
+    {
+      "calculator": "information_component",
+      "inputs": {
+        "a": 47,
+        "b": 4053,
+        "c": 21992,
+        "d": 9973908
+      },
+      "expected": {
+        "observed": 47,
+        "expected": 9.04,
+        "ic": 2.32,
+        "ic025": 1.87
+      },
+      "tolerance": {
+        "observed": 0.5,
+        "expected": 0.005,
+        "ic": 0.005,
+        "ic025": 0.005
+      },
+      "source": "Calculation 18.1",
+      "note": "IC025 from the gamma posterior."
+    },
+    {
+      "calculator": "four_stratum_expectations",
+      "inputs": {
+        "reports_00": 9595900,
+        "events_00": 19192,
+        "reports_10": 3680,
+        "events_10": 26,
+        "reports_01": 400000,
+        "events_01": 2800,
+        "reports_11": 420,
+        "events_11": 21
+      },
+      "expected": {
+        "f00": 0.002,
+        "f10": 0.00707,
+        "f01": 0.007,
+        "f11": 0.05,
+        "multiplicative_expected_f11": 0.0247,
+        "multiplicative_expected_count": 10.4,
+        "multiplicative_ratio": 2.0,
+        "additive_expected_f11": 0.0121,
+        "additive_expected_count": 5.1,
+        "additive_excess": 0.038,
+        "additive_ratio": 4
+      },
+      "tolerance": {
+        "f00": 5e-06,
+        "f10": 5e-06,
+        "f01": 5e-06,
+        "f11": 5e-05,
+        "multiplicative_expected_f11": 5e-05,
+        "multiplicative_expected_count": 0.05,
+        "multiplicative_ratio": 0.05,
+        "additive_expected_f11": 5e-05,
+        "additive_expected_count": 0.05,
+        "additive_excess": 0.0005,
+        "additive_ratio": 0.5
+      },
+      "source": "Calculation 18.3",
+      "note": "Ravolixan x CYP3A4 inhibitors (fictional data); observed about four times the additive expectation."
+    },
+    {
+      "calculator": "four_stratum_expectations",
+      "inputs": {
+        "reports_00": 9595900,
+        "events_00": 19192,
+        "reports_10": 3680,
+        "events_10": 26,
+        "reports_01": 80000,
+        "events_01": 200,
+        "reports_11": 60,
+        "events_11": 3
+      },
+      "expected": {
+        "f01": 0.0025,
+        "f11": 0.05
+      },
+      "tolerance": {
+        "f01": 5e-05,
+        "f11": 0.0005
+      },
+      "source": "Calculation 18.4",
+      "note": "Diltiazem stratum: 3 of 60 (5.0%); diltiazem without ravolixan 200 of 80,000 (0.25%)."
+    },
+    {
+      "calculator": "omega_shrinkage",
+      "inputs": {
+        "reports_00": 9595900,
+        "events_00": 19192,
+        "reports_10": 3680,
+        "events_10": 26,
+        "reports_01": 400000,
+        "events_01": 2800,
+        "reports_11": 420,
+        "events_11": 21
+      },
+      "expected": {
+        "g00": 0.002,
+        "g10": 0.00712,
+        "g01": 0.00705,
+        "expected_odds": 0.01216,
+        "expected_proportion": 0.01201,
+        "expected_count": 5.05,
+        "omega": 1.95,
+        "omega025_normal": 1.34,
+        "omega025_gamma": 1.27
+      },
+      "tolerance": {
+        "g00": 5e-06,
+        "g10": 5e-06,
+        "g01": 5e-06,
+        "expected_odds": 5e-06,
+        "expected_proportion": 5e-06,
+        "expected_count": 0.005,
+        "omega": 0.005,
+        "omega025_normal": 0.005,
+        "omega025_gamma": 0.005
+      },
+      "source": "Calculation 18.3"
+    },
+    {
+      "calculator": "omega_shrinkage",
+      "inputs": {
+        "reports_00": 9595900,
+        "events_00": 19192,
+        "reports_10": 3680,
+        "events_10": 26,
+        "reports_01": 80000,
+        "events_01": 200,
+        "reports_11": 60,
+        "events_11": 3
+      },
+      "expected": {
+        "g01": 0.00251,
+        "expected_odds": 0.00762,
+        "expected_proportion": 0.00756,
+        "expected_count": 0.45,
+        "unshrunk_log2_ratio": 2.73,
+        "omega": 1.88,
+        "omega025_normal": 0.24,
+        "omega025_gamma": -0.17
+      },
+      "tolerance": {
+        "g01": 5e-06,
+        "expected_odds": 5e-06,
+        "expected_proportion": 5e-06,
+        "expected_count": 0.005,
+        "unshrunk_log2_ratio": 0.005,
+        "omega": 0.005,
+        "omega025_normal": 0.005,
+        "omega025_gamma": 0.005
+      },
+      "source": "Calculation 18.4"
+    },
+    {
+      "calculator": "liver_injury_r_ratio",
+      "inputs": {
+        "alt": 1240,
+        "alt_uln": 40,
+        "alp": 180,
+        "alp_uln": 130,
+        "bilirubin": 92,
+        "bilirubin_uln": 21
+      },
+      "expected": {
+        "alt_x_uln": 31,
+        "alp_x_uln": 1.38,
+        "r_ratio": 22,
+        "bilirubin_x_uln": 4.4
+      },
+      "tolerance": {
+        "alt_x_uln": 0.5,
+        "alp_x_uln": 0.005,
+        "r_ratio": 0.5,
+        "bilirubin_x_uln": 0.05
+      },
+      "source": "Worked Case 14.1",
+      "note": "Discussion of stage 1 in Section 14.5: R about 22, hepatocellular pattern; bilirubin about 4.4 x ULN."
+    }
+  ]
+}

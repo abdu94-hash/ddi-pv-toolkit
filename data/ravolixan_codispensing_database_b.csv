@@ -1,0 +1,9 @@
+fictional_teaching_data,measure,period,numerator,denominator,percent_as_printed,denominator_unit
+yes,strong CYP3A4 inhibitor overlap (at least 1 day),months -6 to -1,198,10400,1.90,ravolixan users
+yes,strong CYP3A4 inhibitor overlap (at least 1 day),months 1 to 6,101,11200,0.90,ravolixan users
+yes,strong CYP3A4 inhibitor overlap (at least 1 day),months 7 to 12,92,11600,0.8,ravolixan users
+yes,fluconazole overlap,months -6 to -1,146,10400,1.4,ravolixan users
+yes,fluconazole overlap,months 7 to 12,174,11600,1.5,ravolixan users
+yes,fluconazole overlap as single 150 mg dispensing,months 7 to 12,118,174,68,fluconazole overlap users
+yes,moderate-inhibitor overlap episodes still at 40 mg,before (months -6 to -1),200,312,64,overlap episodes
+yes,moderate-inhibitor overlap episodes still at 40 mg,after (months 1 to 6),150,334,45,overlap episodes

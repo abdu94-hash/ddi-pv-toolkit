@@ -1,0 +1,10 @@
+fictional_teaching_data,date,visit,exposure,central_qtcf_ms,potassium_mmol_L,magnesium_mmol_L,note
+yes,baseline (randomized 2025-12-02),,on study drug (blinded),428,,,
+yes,2026-02-24,week 12,on study drug (blinded),433,3.9,,
+yes,2026-03-06,,clarithromycin 500 mg twice daily started (evening),,,,
+yes,2026-03-10,week 14,study drug plus clarithromycin (8 doses),462,3.2,0.68,increase 34 ms; site machine QTc (Bazett) 498 ms; temperature 37.9 C; heart rate 94/min
+yes,2026-03-11,,study drug interrupted; clarithromycin switched to doxycycline,455,,,
+yes,2026-03-13,,off study drug,444,,,
+yes,2026-03-17,,off study drug,432,4.2,0.82,
+yes,2026-03-24,,study drug restarted,,,,
+yes,2026-03-27,,"on study drug, 2 h post-dose",437,,,treatment code later showed placebo

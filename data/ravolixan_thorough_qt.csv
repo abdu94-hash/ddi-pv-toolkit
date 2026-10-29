@@ -1,0 +1,3 @@
+fictional_teaching_data,dose_level,multiple_of_therapeutic_cmax,mean_placebo_corrected_dqtcf_ms,upper_90ci_ms,source
+yes,therapeutic (40 mg),1,6,9,Table rvxddi; Section 19.3
+yes,supratherapeutic,about 4,18,22,Table rvxddi; Section 19.3

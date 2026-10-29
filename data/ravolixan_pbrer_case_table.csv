@@ -1,0 +1,10 @@
+fictional_teaching_data,characteristic,with_cyp3a4_inhibitor_n21,without_n26
+yes,"Strong inhibitor: clarithromycin, itraconazole","9, 2",Not applicable
+yes,"Moderate inhibitor: fluconazole, diltiazem","7, 3",Not applicable
+yes,"Overlap confirmed, probable, unknown, excluded","11, 5, 4, 1",Not applicable
+yes,Hypokalemia or hypomagnesemia,9,Included in the 12 below
+yes,Other QT-prolonging drug,Abstraction ongoing,14
+yes,Structural heart disease or electrolyte abnormality,Abstraction ongoing,12
+yes,ECG-documented torsade de pointes,6,Abstraction ongoing
+yes,Fatal outcome,2,Abstraction ongoing
+yes,Advice not followed; dose reduced; indeterminate,8; 4; 9,Not applicable

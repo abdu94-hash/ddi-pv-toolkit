@@ -1,0 +1,4 @@
+fictional_teaching_data,assumed_coexposure_percent,patient_years_with_inhibitor,cases_with_inhibitor,patient_years_without_inhibitor,cases_without_inhibitor,rate_with_per_100000_py_as_printed,rate_without_per_100000_py_as_printed,ratio_as_printed
+yes,2,3600,21,176400,26,583,14.7,about 40
+yes,5,9000,21,171000,26,233,15.2,about 15
+yes,10,18000,21,162000,26,117,16.0,about 7

@@ -1,0 +1,11 @@
+fictional_teaching_data,alert,measure,count,denominator,percent_as_printed
+yes,interruptive strong-inhibitor alert,displays,148,,
+yes,interruptive strong-inhibitor alert,overridden,64,148,43
+yes,interruptive strong-inhibitor alert,override appropriate on chart review,31,64,
+yes,interruptive strong-inhibitor alert,override with confirmed overlap of both drugs,33,64,
+yes,interruptive strong-inhibitor alert,confirmed overlap per display,33,148,22
+yes,non-interruptive moderate-inhibitor guidance,displays,296,,
+yes,non-interruptive moderate-inhibitor guidance,ravolixan 20 mg ordered within 3 days,118,296,40
+yes,non-interruptive moderate-inhibitor guidance,potassium measured within 3 days,77,296,26
+yes,"legacy generic alert, ravolixan with any QT-prolonging drug",displays,1020,,
+yes,"legacy generic alert, ravolixan with any QT-prolonging drug",overridden,989,1020,97

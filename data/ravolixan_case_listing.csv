@@ -1,0 +1,9 @@
+fictional_teaching_data,case_id,sex,age_years,country,reporter_type,ravolixan_dose,inhibitor,inhibitor_class,inhibitor_dose,other_drugs,overlap,onset_as_listed,qtc_ms,qtc_note,potassium_mmol_L,magnesium,event_ecg_electrolytes_as_listed,outcome,label_advice,information_grade
+yes,MT-24-0113,F,71,US,physician,40 mg,clarithromycin,strong,500 mg twice daily,,Confirmed,day 3,,no prior ECG,4.2,,Cardiac arrest at home; VF on paramedic monitor; no prior ECG; K 4.2 mmol/L; fatal,fatal,Not followed (strong),B
+yes,MT-25-0457,M,64,DE,physician,40 mg,fluconazole,moderate,200 mg daily,,Confirmed,day 5,560,QTcF,2.9,low,"TdP on telemetry; QTcF 560 ms; K 2.9, Mg low; fatal",fatal,Not followed (no dose reduction),A
+yes,MT-25-0302,M,77,FR,physician,40 mg,diltiazem,moderate,240 mg daily,,Confirmed,about day 10,498,QTcF,,0.55 mmol/L,QTcF 498 ms; ventricular ectopy; Mg 0.55 mmol/L; recovered,recovered,Not followed (no dose reduction),A
+yes,MT-26-0048,M,52,JP,physician,40 mg,itraconazole,strong,200 mg daily,,Confirmed,day 7,,TdP on ECG,3.4,,TdP on ECG; K 3.4; recovered with IV magnesium,recovered,Not followed (strong),A
+yes,MT-26-0219,F,81,IT,literature,40 mg,clarithromycin,strong,500 mg twice daily,furosemide,Probable,not dated,540,QTc,2.8,,QTc 540 ms; K 2.8; recovered,recovered,Not followed (strong),B
+yes,MT-25-0821,F,58,UK,pharmacist,20 mg (reason not stated),fluconazole,moderate,"150 mg, frequency unknown",,Probable,not dated,512,QTc,,,QTc 512 ms; syncope; electrolytes not reported; recovered,recovered,Dose reduced,B
+yes,MT-25-1106,F,69,US,consumer,Dose unknown,clarithromycin,strong,dose unknown,,Unknown,,,no ECG details,,,"""Heart rhythm problem""; hospitalized; no ECG details",hospitalized (outcome not stated),Not assessable,C
+yes,MT-26-0390,M,60,ES,physician,40 mg,diltiazem,moderate,stopped 3 weeks before ravolixan,,None,,505,QTcF; during diarrhea,3.0,,QTcF 505 ms during diarrhea; K 3.0; recovered,recovered,Not applicable,A

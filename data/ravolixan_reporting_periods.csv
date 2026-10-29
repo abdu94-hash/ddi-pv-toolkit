@@ -1,0 +1,4 @@
+fictional_teaching_data,period,start,end,patient_years,qt_related_cases,qt_cases_with_inhibitor,ecg_documented_tdp_with_inhibitor,rate_all_per_100000_py_as_printed,rate_with_inhibitor_per_100000_py_as_printed,source
+yes,cumulative,international birth date,2026-06-30,180000,47,21,6,26.1,,Calculation 22.1
+yes,PBRER interval,2025-07-01,2026-06-30,61000,24,13,4,39.3,21.3,Calculation 22.1; Worked Case 22.1
+yes,before the interval,international birth date,2025-06-30,119000,23,8,2,19.3,6.7,Calculation 22.1

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDI Teaching Calculators</title>
+  <meta name="description" content="Interactive versions of the worked calculations in Drug–Drug Interactions in Drug Safety and Pharmacovigilance. Simplified static models for learning; not for dosing or clinical decisions.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#calculators">Skip to the calculators</a>
+  <header class="site-head">
+    <div class="wrap">
+      <p class="kicker">Companion to the book</p>
+      <h1><cite>Drug–Drug Interactions in Drug Safety and Pharmacovigilance</cite></h1>
+      <p class="lede">The book's worked calculations as interactive teaching tools. Each calculator opens with the book's example; change the inputs to see how the answer moves, and read the assumption that comes with it.</p>
+      <div class="caveat" role="note">
+        <strong>For learning only.</strong>
+        These are simplified static models with illustrative or fictional values. They do not predict what happens in an individual patient, and they must not be used for dosing or any other clinical decision. Ravolixan and Meridian Therapeutics are fictional.
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap layout">
+    <nav class="toc" aria-label="Calculators">
+      <label for="filter" class="filter-label">Find a calculator</label>
+      <input id="filter" type="search" placeholder="e.g. QT, Omega, washout" autocomplete="off">
+      <p id="filter-status" class="filter-status" aria-live="polite"></p>
+      <ul id="toc-list"></ul>
+    </nav>
+
+    <main id="calculators" tabindex="-1">
+      <noscript><p class="error">The calculators need JavaScript. The formulas are also in spec/CALCULATORS.md.</p></noscript>
+    </main>
+  </div>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>Formulas, inputs, and valid ranges: <code>spec/CALCULATORS.md</code>. The same calculations are tested against the book's numbers in <code>spec/vectors.json</code> and are available as a Python package and command-line tool in <code>python/</code>.</p>
+      <p>Educational use only: simplified static models from the book; not for dosing or clinical decisions.</p>
+    </div>
+  </footer>
+
+  <script src="calculators.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

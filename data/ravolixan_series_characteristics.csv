@@ -1,0 +1,28 @@
+fictional_teaching_data,group,characteristic,category,value,unit,source
+yes,with inhibitor (n = 21),inhibitor,clarithromycin,9,cases,Section 17.6
+yes,with inhibitor (n = 21),inhibitor,fluconazole,7,cases,Section 17.6
+yes,with inhibitor (n = 21),inhibitor,itraconazole,2,cases,Section 17.6
+yes,with inhibitor (n = 21),inhibitor,diltiazem,3,cases,Section 17.6
+yes,with inhibitor (n = 21),exposure overlap,confirmed,11,cases,Section 17.6
+yes,with inhibitor (n = 21),exposure overlap,probable,5,cases,Section 17.6
+yes,with inhibitor (n = 21),exposure overlap,unknown,4,cases,Section 17.6
+yes,with inhibitor (n = 21),exposure overlap,no overlap,1,cases,Section 17.6
+yes,with inhibitor (n = 21),label advice,not followed,8,cases,Section 17.6
+yes,with inhibitor (n = 21),label advice,dose reduced to 20 mg with moderate inhibitor,4,cases,Section 17.6
+yes,with inhibitor (n = 21),label advice,not applicable or not assessable,9,cases,Section 17.6
+yes,with inhibitor (n = 21),label advice not followed (n = 8),strong inhibitor used with ravolixan,5,cases,Section 17.6; Worked Case 23.1
+yes,with inhibitor (n = 21),label advice not followed (n = 8),moderate inhibitor without dose reduction,3,cases,Section 17.6; Worked Case 23.1
+yes,with inhibitor (n = 21),information quality,grade A,7,cases,Section 17.6
+yes,with inhibitor (n = 21),information quality,grade B,9,cases,Section 17.6
+yes,with inhibitor (n = 21),information quality,grade C,5,cases,Section 17.6
+yes,with inhibitor (n = 21),clinical feature,hypokalemia or hypomagnesemia documented,9,cases,Section 17.6
+yes,with inhibitor (n = 21),clinical feature,ECG-documented torsade de pointes,6,cases,Section 17.6
+yes,with inhibitor (n = 21),clinical feature,fatal (1 clarithromycin; 1 fluconazole with hypokalemia),2,cases,Section 17.6
+yes,with inhibitor (n = 21),"time to onset, confirmed overlap (n = 11)",median,4,days after inhibitor start,Section 17.6
+yes,with inhibitor (n = 21),"time to onset, confirmed overlap (n = 11)",minimum,1,days after inhibitor start,Section 17.6
+yes,with inhibitor (n = 21),"time to onset, confirmed overlap (n = 11)",maximum,12,days after inhibitor start,Section 17.6
+yes,with inhibitor (n = 21),prescriber,inhibitor prescribed by someone other than the ravolixan prescriber (illustrative),15,cases,Worked Case 23.1
+yes,with inhibitor (n = 21),receipt period,received in PBRER interval (1 Jul 2025 to 30 Jun 2026),13,cases,Worked Case 22.1
+yes,with inhibitor (n = 21),receipt period,ECG-documented torsade de pointes received in interval,4,cases,Worked Case 22.1
+yes,without inhibitor (n = 26),co-factor,another QT-prolonging drug co-reported,14,cases,Section 17.6
+yes,without inhibitor (n = 26),co-factor,structural heart disease or electrolyte abnormality,12,cases,Section 17.6

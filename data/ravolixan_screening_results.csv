@@ -1,0 +1,18 @@
+fictional_teaching_data,source,analysis,measure,estimate_as_printed,lower_as_printed,upper_as_printed
+yes,Calculation 18.1,single-drug screen,PRR,5.21,3.92,6.93
+yes,Calculation 18.1,single-drug screen,ROR,5.26,3.94,7.01
+yes,Calculation 18.1,single-drug screen,expected count E (IC),9.04,,
+yes,Calculation 18.1,single-drug screen,IC,2.32,1.87,
+yes,Calculation 18.2,within-drug comparison,PRR,7.08,4.02,12.47
+yes,Calculation 18.2,within-drug comparison,ROR,7.40,4.12,13.27
+yes,Calculation 18.3,"four strata, all inhibitors","expected count, multiplicative model",10.4,,
+yes,Calculation 18.3,"four strata, all inhibitors","observed to expected ratio, multiplicative",2.0,,
+yes,Calculation 18.3,"four strata, all inhibitors","expected count, additive model",5.1,,
+yes,Calculation 18.3,"four strata, all inhibitors","excess proportion, additive",0.038,,
+yes,Calculation 18.3,"four strata, all inhibitors",expected count E111 (Omega),5.05,,
+yes,Calculation 18.3,"four strata, all inhibitors","Omega (lower = Omega025, normal approximation)",1.95,1.34,
+yes,Calculation 18.3,"four strata, all inhibitors","Omega025, gamma posterior",,1.27,
+yes,Calculation 18.4,diltiazem stratum,expected count E111 (Omega),0.45,,
+yes,Calculation 18.4,diltiazem stratum,unshrunk log2(observed/expected),2.73,,
+yes,Calculation 18.4,diltiazem stratum,"Omega (lower = Omega025, normal approximation)",1.88,0.24,
+yes,Calculation 18.4,diltiazem stratum,"Omega025, gamma posterior",,-0.17,

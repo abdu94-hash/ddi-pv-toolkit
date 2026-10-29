@@ -1,0 +1,15 @@
+fictional_teaching_data,domain,parameter,value,unit,note
+yes,dose,usual dose,40,mg once daily,film-coated tablets
+yes,dose,reduced dose,20,mg once daily,with moderate CYP3A4 inhibitors; moderate hepatic impairment; no lower strength (Worked Case 23.1)
+yes,pharmacokinetics,oral bioavailability,60,percent (about),
+yes,pharmacokinetics,Tmax,2,h,
+yes,pharmacokinetics,half-life,14,h (about),
+yes,pharmacokinetics,time to steady state,3,days,
+yes,pharmacokinetics,"fm,CYP3A4",0.75,fraction of clearance (about),
+yes,pharmacokinetics,P-gp substrate,yes,,
+yes,pharmacokinetics,excreted unchanged in urine,10,percent (about),
+yes,pharmacokinetics,active metabolite M4 share of activity,15,percent (about),CYP3A4-formed; no QT effect
+yes,development,patients in development program,2900,patients (about),no torsade de pointes; strong CYP3A4 inhibitors excluded from pivotal trials
+yes,post-marketing,cumulative exposure to DLP 30 June 2026,180000,patient-years (about),
+yes,post-marketing,exposure in PBRER interval 1 July 2025 to 30 June 2026,61000,patient-years (about),
+yes,post-marketing,ravolixan ICSRs cumulatively,4100,reports (about),

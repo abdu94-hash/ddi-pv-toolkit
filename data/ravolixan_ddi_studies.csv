@@ -1,0 +1,7 @@
+fictional_teaching_data,precipitant,precipitant_regimen,precipitant_role,evidence_type,auc_ratio,auc_ratio_90ci_lower,auc_ratio_90ci_upper,cmax_ratio,source
+yes,itraconazole,200 mg daily,strong CYP3A4 inhibitor,clinical DDI study (healthy volunteers),4.2,3.7,4.8,2.1,Table rvxddi; Section 19.3
+yes,diltiazem,120 mg twice daily,moderate CYP3A4 inhibitor,clinical DDI study (healthy volunteers),2.0,,,1.5,Table rvxddi; Section 19.3
+yes,rifampin (rifampicin),600 mg daily,strong CYP3A4 inducer,clinical DDI study (healthy volunteers),0.18,,,,Table rvxddi; Section 19.3
+yes,famotidine,not stated,not a CYP3A4 precipitant (no meaningful effect),clinical DDI study (healthy volunteers),0.97,,,,Section 19.3
+yes,clarithromycin,500 mg twice daily,behaves as strong CYP3A4 inhibitor (time-dependent),PBPK prediction only,3.9,,,,Table rvxddi; Section 19.3
+yes,fluconazole,200 mg daily,behaves as moderate CYP3A4 inhibitor,PBPK prediction only,2.6,,,,Table rvxddi; Section 19.3

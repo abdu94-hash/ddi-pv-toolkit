@@ -1,0 +1,5 @@
+fictional_teaching_data,step_order,step,cases,parent_step,note
+yes,1,"Retrieved, SMQ Torsade de pointes/QT prolongation broad scope, all roles",52,,"Database contains about 4,100 ravolixan reports cumulatively"
+yes,2,After deduplication,47,1,"5 duplicates merged, each decision recorded"
+yes,3,Co-reported moderate or strong CYP3A4 inhibitor,21,2,"Clarithromycin 9, fluconazole 7, itraconazole 2, diltiazem 3"
+yes,4,No CYP3A4 inhibitor,26,2,14 with another QT-prolonging drug; 12 with structural heart disease or electrolyte abnormality
