@@ -7,7 +7,7 @@ def fig23_1():
     rows = [('4', 'Contraindications', 'Contraindicated combinations', '4.3', 'Contraindications'),
             ('2', 'Dosage and Administration', 'The dose modification itself', '4.2', 'Posology'),
             ('5', 'Warnings and Precautions', 'The clinical risk (e.g., QT) and its risk factors', '4.4', 'Special warnings'),
-            ('7', 'Drug Interactions', 'Each drug or class: clinical impact, action, examples', '4.5', 'Interactions'),
+            ('7', 'Drug Interactions', 'Each drug or class: action, mechanism, clinical effect', '4.5', 'Interactions'),
             ('12.3', 'Pharmacokinetics', 'Study results: AUC and Cmax ratios', '5.2', 'Pharmacokinetics'),
             ('H, 17', 'Highlights; patient counseling', 'Summary and instructions a patient can act on', '', 'Package leaflet')]
     fig, ax = diagram(3.45)
@@ -51,9 +51,9 @@ def fig23_2():
              ('Adjust the dose', 'dose, start, stop'),
              ('Avoid', 'alternative; what if unavoidable'),
              ('Contra-\nindicate', 'named drugs; practical alternative'),
-             ('Educational materials', 'professionals or patients'),
-             ('Patient alert card', ''),
-             ('Controlled access', '')]
+             ('Educational tools', 'professionals or patients'),
+             ('Patient card', ''),
+             ('Control tools', 'e.g., prescriber qualification')]
     n = len(steps)
     x0, sw, gap = 0.1, 0.7, 0.03
     base = 0.78

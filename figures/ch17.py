@@ -118,7 +118,7 @@ def fig17_1():
     nx, ny, nw, nh = bx + 0.22, by + 0.2, bw - 0.44, 0.8
     box(ax, nx, ny, nw, nh, '', style='teal')
     text(ax, nx + 0.12, ny + nh - 0.15, 'NARROW SCOPE', size=7, bold=True, color='white', ha='left')
-    text(ax, nx + 0.12, ny + nh - 0.33, 'Terms that describe QT prolongation and torsade de pointes themselves',
+    text(ax, nx + 0.12, ny + nh - 0.33, 'Terms that describe QT prolongation and torsade de pointes themselves, plus Ventricular tachycardia',
          size=7.5, color='white', ha='left', va='top', wrapw=40)
     note(ax, 'Torsade de pointes often presents as syncope or cardiac arrest with no recorded rhythm,',
          y=0.36, size=7)

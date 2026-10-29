@@ -123,9 +123,9 @@ def fig22_5():
     # destinations
     bh, by = 0.66, 0.2
     dest = [(0.1, 1.55, 'Cases received to the DLP', '16.3 preliminary findings; counts at the DLP', 'light'),
-            (1.85, 1.15, 'Signal', '15: new, evaluation ongoing; 14: summary', 'light'),
+            (1.85, 1.15, 'Signal', '14: late-breaking; 15 in next PBRER', 'light'),
             (3.08, 1.0, 'RVX-305 case', '14: late-breaking information', 'light'),
-            (4.22, 0.98, 'Outcome', 'submitted as regions require; next PBRER', 'white')]
+            (4.22, 0.98, 'Outcome', 'next PBRER; EU variation if needed', 'white')]
     for x, w, t, s, st in dest:
         box(ax, x, by, w, bh, s, style=st, size=6.8, title=t, align='left')
     # connectors from events to destinations

@@ -88,7 +88,7 @@ def fig16_2():
     """Expectedness: within the listed term versus more specific or more severe (ref [1])."""
     H = 2.6
     fig, ax = diagram(H)
-    cols = [('More specific', 'Hepatitis', ('Hepatitis', 'expected'), ('Hepatic necrosis', 'unexpected')),
+    cols = [('More specific', 'Acute renal failure', ('Acute renal failure', 'expected'), ('Interstitial nephritis', 'unexpected')),
             ('More specific and more severe', 'Electrocardiogram QT prolonged',
              ('QTcF 541 ms', 'expected'), ('Torsade de pointes', 'unexpected')),
             ('More severe', 'Reversible forms only', ('A reversible case', 'expected'), ('A fatal outcome', 'unexpected'))]
@@ -103,7 +103,7 @@ def fig16_2():
             box(ax, bx, 0.62, hw, 0.62, lab, style=st, size=7.2, wrapw=14)
             text(ax, bx + hw / 2, 0.47, verdict, size=7, bold=True, color=TEAL if j == 0 else RUST)
             arrow(ax, (x + cw / 2, 1.66), (bx + hw / 2, 1.26), color=GREY, lw=0.9)
-    text(ax, TEXT_W / 2, 0.14, 'A reaction mentioned only as a class effect, not for the product itself, is generally treated as unexpected.',
+    text(ax, TEXT_W / 2, 0.14, 'A reaction described only as a class ADR should not automatically be considered expected for the product.',
          size=6.8, color=GREY, italic=True)
     save(fig, 'fig16_2')
 

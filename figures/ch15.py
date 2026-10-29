@@ -188,7 +188,7 @@ def fig15_2():
     box(ax, rx, 0.55, 2.74, 0.5, 'Tremor and AKI; the combination assessed as a plausible and important contributor',
         style='rust', size=7, wrapw=48)
     arrow(ax, (rx + 2 * (nw + ng) + nw * 0.8, 1.43), (rx + 2 * (nw + ng) + nw * 0.8, 1.07), color=RUST)
-    text(ax, TEXT_W / 2, 0.18, 'Both drugs interacting, or own product suspect and the other interacting: either convention, applied consistently.',
+    text(ax, TEXT_W / 2, 0.18, 'E2B(R3) guide: select "interacting" for every drug the reporter suspects of interacting [5].',
          size=6.8, color=GREY, italic=True)
     save(fig, 'fig15_2')
 

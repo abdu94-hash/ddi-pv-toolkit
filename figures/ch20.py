@@ -9,10 +9,12 @@ def fig20_1():
         ('Detection', 'Statistical screens and case review. For interaction signals, clinical review of the cases carries much of the weight.'),
         ('Validation', 'Enough evidence of a new association, or a new aspect of a known one, to justify further analysis? '
                        'Outcome: validated; not validated, with the reason; or monitoring.'),
+        ('Confirmation (EU regulators)', 'For a validated signal entered in EPITT: does the PRAC need to analyze it? '
+                                         'PRAC Rapporteur or lead Member State, within 30 days.'),
         ('Analysis and prioritization', 'How urgently, and with what resources? A profile across six criteria, not a score.'),
         ('Assessment', 'What does all the evidence show? Is a change to benefit–risk, labeling, or risk minimization needed?'),
-        ('Recommendation for action', 'What action, by whom, and by when?'),
-        ('Exchange of information', 'Who must be told, and how? Regulatory notification; periodic report signal sections.'),
+        ('Recommendation for action', 'What action, by whom, by when, and who must be told? '
+                                      'Regulatory notification; periodic report signal sections.'),
     ]
     h = 3.85
     fig, ax = diagram(h)
