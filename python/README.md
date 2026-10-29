@@ -8,7 +8,7 @@ The full specification of every calculator (formula as the book states it, input
 
 ## Install
 
-Python 3.9 or later. There are no runtime dependencies.
+Python 3.10 or later. There are no runtime dependencies.
 
 From the repository root:
 

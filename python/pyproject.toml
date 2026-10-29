@@ -7,7 +7,7 @@ name = "ddi-toolkit"
 version = "1.0.0"
 description = "Educational calculators from 'Drug-Drug Interactions in Drug Safety and Pharmacovigilance'. Not for dosing or clinical decisions."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = { text = "MIT" }
 keywords = ["pharmacovigilance", "drug-drug interactions", "pharmacokinetics", "disproportionality", "education"]
 classifiers = [

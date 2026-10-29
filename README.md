@@ -19,7 +19,7 @@ The book teaches interaction assessment through worked calculations, case worksh
 
 **In a browser.** Open the web calculators at https://abdu94-hash.github.io/ddi-pv-toolkit/, or open `docs/index.html` from a downloaded copy. Each calculator starts with the book's worked example filled in.
 
-**From the command line** (Python 3.9 or later, no other dependencies):
+**From the command line** (Python 3.10 or later, no other dependencies):
 
 ```bash
 python -m pip install ./python
