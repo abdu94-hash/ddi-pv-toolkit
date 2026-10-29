@@ -6,7 +6,7 @@ The book teaches interaction assessment through worked calculations, case worksh
 
 | Folder | What it holds |
 |---|---|
-| [`docs/`](docs/) | **Web calculators.** Every calculation in the book as an interactive page, with no installation. Published with GitHub Pages: PAGES_URL |
+| [`docs/`](docs/) | **Web calculators.** Every calculation in the book as an interactive page, with no installation. Published with GitHub Pages: https://abdu94-hash.github.io/ddi-pv-toolkit/ |
 | [`python/`](python/) | **Python package and command line** (`ddi_toolkit`, `ddi-toolkit`). The same 25 calculators for scripts and notebooks. |
 | [`spec/`](spec/) | **Specification.** The formula, inputs, valid ranges, assumptions and book source for each calculator, plus `vectors.json`, the book's worked numbers used to test both the Python and the JavaScript versions. |
 | [`worksheets/`](worksheets/) | **The 26 companion worksheets** as editable Word files and as Markdown, one per chapter. |
@@ -17,7 +17,7 @@ The book teaches interaction assessment through worked calculations, case worksh
 
 ## Quick start
 
-**In a browser.** Open the web calculators at PAGES_URL, or open `docs/index.html` from a downloaded copy. Each calculator starts with the book's worked example filled in.
+**In a browser.** Open the web calculators at https://abdu94-hash.github.io/ddi-pv-toolkit/, or open `docs/index.html` from a downloaded copy. Each calculator starts with the book's worked example filled in.
 
 **From the command line** (Python 3.9 or later, no other dependencies):
 
@@ -69,6 +69,6 @@ Ravolixan, its marketing authorization holder Meridian Therapeutics, study RVX-3
 
 Please cite the book when you use these materials:
 
-> Selim H. *Drug–Drug Interactions in Drug Safety and Pharmacovigilance: From Mechanisms and Case Assessment to Safety Signals and Risk Management.* Companion toolkit: REPO_URL
+> Selim H. *Drug–Drug Interactions in Drug Safety and Pharmacovigilance: From Mechanisms and Case Assessment to Safety Signals and Risk Management.* Companion toolkit: https://github.com/abdu94-hash/ddi-pv-toolkit
 
 Corrections are welcome as GitHub issues. If a calculator disagrees with the book, the issue should quote the calculation number.
