@@ -199,4 +199,4 @@ The tests run every vector in `spec/vectors.json` through the matching function 
 
 ## License
 
-Code: MIT (see `LICENSE` at the repository root).
+CC BY-NC 4.0: free for non-commercial use with credit; commercial use needs the author's permission (see `LICENSE` and `NOTICE` at the repository root).

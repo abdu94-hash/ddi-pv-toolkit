@@ -133,4 +133,4 @@ Month 0 is the label update and DHPC.
 
 ## License
 
-The datasets are released under CC BY 4.0 (see `LICENSE-content` in the repository root).
+The datasets are released under CC BY-NC 4.0, for non-commercial use with credit (see `LICENSE` and `NOTICE` in the repository root).

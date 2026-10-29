@@ -22,4 +22,4 @@ Editable Word version: [ws24_risk-minimization-effectiveness-plan.docx](../docx/
 
 ---
 
-*Companion worksheet to Drug–Drug Interactions in Drug Safety and Pharmacovigilance (H. Selim). Educational template; adapt to your organization's procedures.*
+*Companion worksheet to Drug–Drug Interactions in Drug Safety and Pharmacovigilance (H. Selim). Educational template; adapt to your organization's procedures. CC BY-NC 4.0: non-commercial use with credit.*

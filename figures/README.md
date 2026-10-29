@@ -35,4 +35,4 @@ The figures use Calibri when it is installed, as in the book. Where Calibri is n
 
 ## License
 
-The code is released under the MIT License (see `LICENSE` in the repository root).
+The code and the images it produces are released under CC BY-NC 4.0, for non-commercial use with credit (see `LICENSE` and `NOTICE` in the repository root).

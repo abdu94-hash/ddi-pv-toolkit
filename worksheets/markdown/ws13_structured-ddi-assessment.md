@@ -19,4 +19,4 @@ Editable Word version: [ws13_structured-ddi-assessment.docx](../docx/ws13_struct
 
 ---
 
-*Companion worksheet to Drug–Drug Interactions in Drug Safety and Pharmacovigilance (H. Selim). Educational template; adapt to your organization's procedures.*
+*Companion worksheet to Drug–Drug Interactions in Drug Safety and Pharmacovigilance (H. Selim). Educational template; adapt to your organization's procedures. CC BY-NC 4.0: non-commercial use with credit.*

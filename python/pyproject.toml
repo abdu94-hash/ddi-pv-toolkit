@@ -8,11 +8,11 @@ version = "1.0.0"
 description = "Educational calculators from 'Drug-Drug Interactions in Drug Safety and Pharmacovigilance'. Not for dosing or clinical decisions."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "MIT" }
+license = { text = "CC-BY-NC-4.0" }
 keywords = ["pharmacovigilance", "drug-drug interactions", "pharmacokinetics", "disproportionality", "education"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "License :: Other/Proprietary License",
     "Intended Audience :: Education",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Medical Science Apps.",

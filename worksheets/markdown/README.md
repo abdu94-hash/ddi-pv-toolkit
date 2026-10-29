@@ -38,4 +38,4 @@ The worksheets are teaching tools that make reasoning visible. They are not vali
 | 25 | Complete case-review package | Complete DDI case workshop | [ws25_complete-case-review-package.md](ws25_complete-case-review-package.md) | [ws25_complete-case-review-package.docx](../docx/ws25_complete-case-review-package.docx) |
 | 26 | Committee briefing | Case series and safety committee recommendation | [ws26_committee-briefing.md](ws26_committee-briefing.md) | [ws26_committee-briefing.docx](../docx/ws26_committee-briefing.docx) |
 
-The worksheets are released under CC BY 4.0 (see `LICENSE-content` in the repository root).
+The worksheets are released under CC BY-NC 4.0, for non-commercial use with credit (see `LICENSE` and `NOTICE` in the repository root).

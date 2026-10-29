@@ -64,8 +64,7 @@ Ravolixan, its marketing authorization holder Meridian Therapeutics, study RVX-3
 
 ## License and citation
 
-- Code (`python/`, `docs/`, `spec/`, `figures/*.py`): [MIT](LICENSE).
-- Worksheets, datasets and figure images: [CC BY 4.0](LICENSE-content).
+Everything in this repository, code included, is licensed under [CC BY-NC 4.0](LICENSE): you may share and adapt it for **non-commercial** purposes such as teaching, study and non-commercial research, with credit. Commercial use, including paid training, commercial software or fee-based services, needs the author's permission. See [NOTICE](NOTICE) for the suggested credit line.
 
 Please cite the book when you use these materials:
 

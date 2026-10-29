@@ -23,4 +23,4 @@ Editable Word version: [ws01_initial-ddi-screening-checklist.docx](../docx/ws01_
 
 ---
 
-*Companion worksheet to Drug–Drug Interactions in Drug Safety and Pharmacovigilance (H. Selim). Educational template; adapt to your organization's procedures.*
+*Companion worksheet to Drug–Drug Interactions in Drug Safety and Pharmacovigilance (H. Selim). Educational template; adapt to your organization's procedures. CC BY-NC 4.0: non-commercial use with credit.*

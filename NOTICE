@@ -1,0 +1,27 @@
+DDI-PV Toolkit
+Companion to "Drug–Drug Interactions in Drug Safety and Pharmacovigilance:
+From Mechanisms and Case Assessment to Safety Signals and Risk Management"
+by Hafez Selim.
+
+Copyright (c) 2026 Hafez Selim.
+
+Everything in this repository (the calculators in python/ and docs/, the
+specification in spec/, the worksheets, the datasets, and the figure code
+and any images it produces) is licensed under the Creative Commons
+Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0); the
+full text is in LICENSE.
+
+You may share and adapt these materials for non-commercial purposes, such
+as teaching, study, and non-commercial research, provided you give
+appropriate credit, for example:
+
+  From "Drug–Drug Interactions in Drug Safety and Pharmacovigilance"
+  by Hafez Selim, companion toolkit,
+  https://github.com/abdu94-hash/ddi-pv-toolkit
+
+Commercial use, including use in paid training, commercial software, or
+services offered for a fee, requires permission from the author.
+
+The ravolixan datasets describe a fictional medicine. They are teaching
+material and contain no real patient data. The calculators are simplified
+educational models and must not be used for dosing or clinical decisions.

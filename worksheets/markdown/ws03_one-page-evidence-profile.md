@@ -26,4 +26,4 @@ Editable Word version: [ws03_one-page-evidence-profile.docx](../docx/ws03_one-pa
 
 ---
 
-*Companion worksheet to Drug–Drug Interactions in Drug Safety and Pharmacovigilance (H. Selim). Educational template; adapt to your organization's procedures.*
+*Companion worksheet to Drug–Drug Interactions in Drug Safety and Pharmacovigilance (H. Selim). Educational template; adapt to your organization's procedures. CC BY-NC 4.0: non-commercial use with credit.*
